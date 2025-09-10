@@ -36,10 +36,49 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add code here
-
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+    def display(self):
+        current = self.head
+        print("Singly Linked List:")
+        while current:
+            print(current.data, end=" -> " if current.next else "")
+            current = current.next
+        print()
+def find_middle_recursive(slow, fast):
+    if not fast or not fast.next:
+        return slow
+    return find_middle_recursive(slow.next, fast.next.next)
+sll = SinglyLinkedList()
+n = int(input("Enter the number of elements in the list: "))
+for i in range(n):
+    value = input(f"Enter value {i + 1}: ")
+    sll.append(value)
+sll.display()
+if sll.head:
+    middle_node = find_middle_recursive(sll.head, sll.head)
+    print(f"\nMiddle node: {middle_node.data}")
+else:
+    print("The list is empty.")
+```
 ## Sample Input & Output
+<img width="718" height="383" alt="444377311-4f0931e1-ad3e-4581-a582-7960ec06b1ab" src="https://github.com/user-attachments/assets/9ac93e87-c03e-4385-aab8-2832def8956d" />
 
 ## Result
-
+Thus, the program has executed successfully
 
